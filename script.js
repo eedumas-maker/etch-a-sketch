@@ -1,28 +1,51 @@
 const container = document.querySelector('#container');
 
-let grid = [];
+let column = [];
+let row = [];
 
-for (x = 1; x <= 16; x++) {
-    for (y = 1; y <= 16; y++){
-        grid.push([x,y]);
-    }
+for (i = 1; i <= 16; i++){
+    row.push(i);
+    column.push(i);
+    console.log(row[i-1]);
+    console.log(column[i-1]);
 }
-console.log(grid.length);
-// should be 16*16 = 256;
 
-console.log("first box: " + grid[0]); //should read 1,1
-console.log("last box: " + grid[255]); //should read 16, 16
+
+//let's make some rows
+let columnLength = column.length;
+let rowLength = row.length;
+let temp;
+let temp2;
+
+
+for (i = 0; i < rowLength; i++){
+    temp = document.createElement('div');
+    temp.className = 'row';
+    container.appendChild(temp);
+
+    for (z = 0; z < columnLength; z++) {
+        temp2 = document.createElement('div');
+        temp2.className = 'box';
+        temp2.innerHTML = row[i] + ',' + column[z];
+        temp.appendChild(temp2);
+    }
+
+}
+
 
 // so the code below makes a nice long line of squares
-let gridLength = grid.length;
-let temp;
 
-for (i = 0; i < gridLength; i++) {
-  temp = document.createElement('div');
-  temp.className = 'box';
-  temp.innerHTML = grid[i];
-  container.appendChild(temp);
-}
+
+
+
+
+// for (i = 0; i < gridLength; i++) {
+//   temp = document.createElement('div');
+//   temp.className = 'box';
+//   temp.innerHTML = grid[i];
+//   container.appendChild(temp);
+// }
+
 
 
 

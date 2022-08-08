@@ -2,6 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 8px;
 }
 
 .box {
@@ -13,13 +14,13 @@ body {
 .row {
     height: 32px;
     border: 1px solid purple;
+    display: flex;
 }
 
 #container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 512px;
-    width: 512px;
+    flex-direction: column;
+    height: 600px;
+    width: 600px;
     border: 1px solid red;
 }
