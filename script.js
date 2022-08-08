@@ -1,15 +1,19 @@
 const container = document.querySelector('#container');
 
-let xAxis = [];
-let yAxis = [];
-let grid = [xAxis, yAxis];
+let grid = [];
 
-for (x = 0; x < 16; x++) {
-    for (y = 0; y < 16; y++){
+for (x = 1; x <= 16; x++) {
+    for (y = 1; y <= 16; y++){
         grid.push([x,y]);
     }
 }
+console.log(grid.length);
+// should be 16*16 = 256;
 
+console.log("first box: " + grid[0]); //should read 1,1
+console.log("last box: " + grid[255]); //should read 16, 16
+
+// so the code below makes a nice long line of squares
 let gridLength = grid.length;
 let temp;
 
@@ -20,7 +24,6 @@ for (i = 0; i < gridLength; i++) {
   container.appendChild(temp);
 }
 
-//i could create row DIVs, and then put a line of divs in each row div
 
 
 

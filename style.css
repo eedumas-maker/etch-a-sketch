@@ -5,9 +5,14 @@ body {
 }
 
 .box {
-    width: 32px;
+    min-width: 32px;
     height: 32px;
     border: 1px solid blue;
+}
+
+.row {
+    height: 32px;
+    border: 1px solid purple;
 }
 
 #container {
