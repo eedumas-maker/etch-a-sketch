@@ -10,6 +10,8 @@ for (i = 1; i <= 16; i++){
     console.log(column[i-1]);
 }
 
+// LESSON LEARNED, each box no longer has a unique name, only 16,16 is called Temp
+// Time to find a new way to make a grid
 
 //let's make some rows
 let columnLength = column.length;
@@ -28,23 +30,12 @@ for (i = 0; i < rowLength; i++){
         temp2.className = 'box';
         temp2.innerHTML = row[i] + ',' + column[z];
         temp.appendChild(temp2);
+        temp2.addEventListener('mouseover', () => temp2.classList.add('hover'));
     }
 
 }
 
 
-// so the code below makes a nice long line of squares
-
-
-
-
-
-// for (i = 0; i < gridLength; i++) {
-//   temp = document.createElement('div');
-//   temp.className = 'box';
-//   temp.innerHTML = grid[i];
-//   container.appendChild(temp);
-// }
 
 
 

@@ -7,3 +7,7 @@ Let's try:
 - creating 16 rows of divs, and then creating 16 square divs within each row
 - rows could be any size really, nice! ideally same height as squares
 
+Lesson Learned:
+
+- that didn't work, because it assigned a temp name to each box, but only the last one could be referenced to add an event handler, the others had no associated variable, not good.
+- I still like the row then boxes style, just need a way to reference them, I'm thinking an array would be best (with x and y coords)

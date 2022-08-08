@@ -15,6 +15,7 @@ body {
     height: 32px;
     border: 1px solid purple;
     display: flex;
+    justify-content: center;
 }
 
 #container {
@@ -23,4 +24,9 @@ body {
     height: 600px;
     width: 600px;
     border: 1px solid red;
+    justify-content: center;
+}
+
+.hover {
+    background-color: grey;
 }
