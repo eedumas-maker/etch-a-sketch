@@ -1,7 +1,20 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 32px;
+    height: 32px;
+    border: 1px solid blue;
+}
+
 #container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 512px;
+    width: 512px;
     border: 1px solid red;
 }

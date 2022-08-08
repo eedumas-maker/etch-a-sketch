@@ -1,9 +1,26 @@
+const container = document.querySelector('#container');
 
+let xAxis = [];
+let yAxis = [];
+let grid = [xAxis, yAxis];
 
+for (x = 0; x < 16; x++) {
+    for (y = 0; y < 16; y++){
+        grid.push([x,y]);
+    }
+}
 
+let gridLength = grid.length;
+let temp;
 
+for (i = 0; i < gridLength; i++) {
+  temp = document.createElement('div');
+  temp.className = 'box';
+  temp.innerHTML = grid[i];
+  container.appendChild(temp);
+}
 
-
+//i could create row DIVs, and then put a line of divs in each row div
 
 
 
