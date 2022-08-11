@@ -11,14 +11,14 @@ button{
 }
 
 .box {
-    min-width: 32px;
-    height: 32px;
-    border: 1px solid blue;
+    /* min-width: 32px;
+    height: 32px; */
+    /* border: 1px solid blue; */
 }
 
 .row {
-    height: 32px;
-    border: 1px solid purple;
+    /* height: 32px; */
+    /* border: 1px solid purple; */
     display: flex;
     justify-content: center;
 }
