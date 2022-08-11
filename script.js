@@ -9,25 +9,32 @@ newGridButton.addEventListener('click', () =>  {
 
 createGrid(16);
 
-function getGridCount(text){
+function getCellSize(text){
 
     text = Math.floor(parseInt(text));
 
     newSize = Math.floor(600 / text); //use document size to determine # of squares
     
-    console.log("text: " + text);
-    console.log("newSize: " + newSize);
 
     return newSize;
 }
 
 
+
 function createGrid(gridCount){
 
-
-    let cellSize = getGridCount(gridCount);
-    
     let row = [];
+    let cellSize = getCellSize(gridCount);
+
+    removeAllChildren(container);
+    
+    function removeAllChildren(parent){
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+ 
 
     // first make the row
     for (let i = 1; i <= gridCount; i++){
