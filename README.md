@@ -11,3 +11,11 @@ Lesson Learned:
 
 - that didn't work, because it assigned a temp name to each box, but only the last one could be referenced to add an event handler, the others had no associated variable, not good.
 - I still like the row then boxes style, just need a way to reference them, I'm thinking an array would be best (with x and y coords)
+
+To try:
+
+- declare the button at the bottom
+  - have button call function that processes input to grid size
+  - make so that it only works for numbers, errors out if no number entered
+- create a function that generates a fresh grid
+  - call it once at the start for initial grid

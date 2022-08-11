@@ -1,8 +1,13 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 8px;
+}
+
+button{
+    
 }
 
 .box {
@@ -18,6 +23,10 @@ body {
     justify-content: center;
 }
 
+.hover {
+    background-color: orange;
+}
+
 #container {
     display: flex;
     flex-direction: column;
@@ -27,6 +36,3 @@ body {
     justify-content: center;
 }
 
-.hover {
-    background-color: grey;
-}

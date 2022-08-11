@@ -1,39 +1,80 @@
 const container = document.querySelector('#container');
+const newGridButton = document.querySelector('#newGrid');
+let gridSize = 16;
 
-let column = [];
+console.log(gridSize);
+console.log('new grid button ' + newGridButton);
+
+// creating the rows for each set of squares
 let row = [];
 
-for (i = 1; i <= 16; i++){
+for (let i = 1; i <= gridSize; i++){
     row.push(i);
-    column.push(i);
-    console.log(row[i-1]);
-    console.log(column[i-1]);
 }
 
-// LESSON LEARNED, each box no longer has a unique name, only 16,16 is called Temp
-// Time to find a new way to make a grid
+// now to make an array of each box
+let grid = new Array(gridSize); // Create initial array
 
-//let's make some rows
-let columnLength = column.length;
-let rowLength = row.length;
-let temp;
-let temp2;
+// loop through array adding arrays for each
+for (let i = 0; i < gridSize; i++){
+    grid[i] = new Array(gridSize);
+}
 
-
-for (i = 0; i < rowLength; i++){
-    temp = document.createElement('div');
-    temp.className = 'row';
-    container.appendChild(temp);
-
-    for (z = 0; z < columnLength; z++) {
-        temp2 = document.createElement('div');
-        temp2.className = 'box';
-        temp2.innerHTML = row[i] + ',' + column[z];
-        temp.appendChild(temp2);
-        temp2.addEventListener('mouseover', () => temp2.classList.add('hover'));
+// now loop through each grid item and give it coordinates
+for (let i = 0; i < gridSize; i++) {
+    for (j = 0; j < gridSize; j++){
+        grid[i][j] = (i + 1) + ',' + (j + 1);
     }
-
 }
+
+// let's make that grid!
+for (let i = 0; i < gridSize; i++){
+    row[i] = document.createElement('div');
+    row[i].className = 'row';
+    container.appendChild(row[i]);
+    // so each row has it's own name "row[i]"
+
+    for (let j = 0; j < gridSize; j++) {
+        grid[i][j] = document.createElement('div');
+        grid[i][j].className = 'box';
+        row[i].appendChild(grid[i][j]);
+
+        console.log(grid[i][j]); // returns div
+        console.log(typeof grid[i][j]); // returns object
+        grid[i][j].addEventListener('mouseover', () => grid[i][j].classList.add('hover'));
+    }
+}
+
+// gridSize = newGridButton.addEventListener('click', () => getGridSize());
+
+
+
+
+// so this isn't how you do it
+// function getGridSize(text){
+//     text = prompt("Please enter your new grid size", 16)
+
+//     text = Math.floor(parseInt(text));
+
+//     newSize = Math.floor(600 / text); //use document size to determine # of squares
+
+//     return newSize;
+// }
+// document.body.addEventListener("mouseover", function(e) {
+//     if(e.target.className == "box") {
+//         e.target.classList.add('hover');
+//     }
+//     else if (e.target.className == "box hover"){
+//         e.target.classList.remove('hover');
+//     }
+// });
+
+// grid[0][0].addEventListener('mouseover', () => grid[0][0].classList.add('hover'));
+
+
+
+// now lets add an event listener by iterating through the entire grid array
+
 
 
 
