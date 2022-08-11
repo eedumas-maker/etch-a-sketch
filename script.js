@@ -1,65 +1,69 @@
 const container = document.querySelector('#container');
 const newGridButton = document.querySelector('#newGrid');
-let gridSize = 16;
+newGridButton.addEventListener('click', () =>  {
+    createGrid(getGridSize(prompt("tell me a number", 16)))
+});
 
-console.log(gridSize);
-console.log('new grid button ' + newGridButton);
+createGrid(16);
 
-// creating the rows for each set of squares
-let row = [];
+function getGridSize(text){
 
-for (let i = 1; i <= gridSize; i++){
-    row.push(i);
+    text = Math.floor(parseInt(text));
+
+    newSize = Math.floor(600 / text); //use document size to determine # of squares
+
+    return newSize;
 }
 
-// now to make an array of each box
-let grid = new Array(gridSize); // Create initial array
+function createGrid(gridSize){
 
-// loop through array adding arrays for each
-for (let i = 0; i < gridSize; i++){
-    grid[i] = new Array(gridSize);
-}
+    let row = [];
 
-// now loop through each grid item and give it coordinates
-for (let i = 0; i < gridSize; i++) {
-    for (j = 0; j < gridSize; j++){
-        grid[i][j] = (i + 1) + ',' + (j + 1);
+    // first make the row
+    for (let i = 1; i <= gridSize; i++){
+        row.push(i);
     }
-}
 
-// let's make that grid!
-for (let i = 0; i < gridSize; i++){
-    row[i] = document.createElement('div');
-    row[i].className = 'row';
-    container.appendChild(row[i]);
-    // so each row has it's own name "row[i]"
+    // now to make an array of each box
+    let grid = new Array(gridSize); // Create initial array
 
-    for (let j = 0; j < gridSize; j++) {
-        grid[i][j] = document.createElement('div');
-        grid[i][j].className = 'box';
-        row[i].appendChild(grid[i][j]);
-
-        console.log(grid[i][j]); // returns div
-        console.log(typeof grid[i][j]); // returns object
-        grid[i][j].addEventListener('mouseover', () => grid[i][j].classList.add('hover'));
+    // loop through array adding arrays for each
+    for (let i = 0; i < gridSize; i++){
+        grid[i] = new Array(gridSize);
     }
-}
 
-// gridSize = newGridButton.addEventListener('click', () => getGridSize());
+    // now loop through each grid item and give it coordinates
+    for (let i = 0; i < gridSize; i++) {
+        for (j = 0; j < gridSize; j++){
+            grid[i][j] = (i + 1) + ',' + (j + 1);
+        }
+    }
+
+    // let's make that grid!
+    for (let i = 0; i < gridSize; i++){
+        row[i] = document.createElement('div');
+        row[i].className = 'row';
+        container.appendChild(row[i]);
+        // so each row has it's own name "row[i]"
+
+        for (let j = 0; j < gridSize; j++) {
+            grid[i][j] = document.createElement('div');
+            grid[i][j].className = 'box';
+            row[i].appendChild(grid[i][j]);
+
+            console.log(grid[i][j]); // returns div
+            console.log(typeof grid[i][j]); // returns object
+            grid[i][j].addEventListener('mouseover', () => grid[i][j].classList.add('hover'));
+        }
+    }
+
+}
 
 
 
 
 // so this isn't how you do it
-// function getGridSize(text){
-//     text = prompt("Please enter your new grid size", 16)
 
-//     text = Math.floor(parseInt(text));
-
-//     newSize = Math.floor(600 / text); //use document size to determine # of squares
-
-//     return newSize;
-// }
 // document.body.addEventListener("mouseover", function(e) {
 //     if(e.target.className == "box") {
 //         e.target.classList.add('hover');
@@ -68,12 +72,6 @@ for (let i = 0; i < gridSize; i++){
 //         e.target.classList.remove('hover');
 //     }
 // });
-
-// grid[0][0].addEventListener('mouseover', () => grid[0][0].classList.add('hover'));
-
-
-
-// now lets add an event listener by iterating through the entire grid array
 
 
 
